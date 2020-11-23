@@ -1,17 +1,20 @@
 const url = 'https://api.spoonacular.com/recipes';
-const apiKey = '7fac5b9113244df680116b0d5d3ca51b';
-//const apiKey = '4522e01865344780bc49eb6916dde771';
+//const apiKey = '7fac5b9113244df680116b0d5d3ca51b';
+const apiKey = '4522e01865344780bc49eb6916dde771';
 
 export const fetchRecipes = async (query) => {
-    const response = await fetch(`${url}/complexSearch?query=${query}&apiKey=${apiKey}`);
+    const response = await fetch(`${url}/complexSearch?query=${query}&instructionsRequired=true&addRecipeInformation=true&apiKey=${apiKey}`);
     const data = await response.json();
-    //console.log(data.results);
-    const modifiedData = data.results.map((recipes) => ({
-        title: recipes.title,
-        image: recipes.image,    
-        id: recipes.id
-    }));
-    //console.log(modifiedData);
+        const modifiedData = data.results.map((recipes) => ({
+            title: recipes.title,
+            image: recipes.image,    
+            id: recipes.id,
+            recipeInstructions: recipes.analyzedInstructions[0].steps.map((steps) =>({
+                stepNumber: steps.number,
+                step: steps.step
+            }))
+        }));
+
     return modifiedData;
 };
 
@@ -19,7 +22,6 @@ export const fetchRecipes = async (query) => {
 export const fetchRecipeInformation = async (id) => {
     const response = await fetch(`${url}/${id}/information?includeNutrition=false&apiKey=${apiKey}`);
     const data = await response.json();
-   // console.log(data.extendedIngredients);
     const modifiedData = data.extendedIngredients.map((ingredients) => ({
         ingredient: ingredients.name,
         amount: ingredients.amount,
@@ -28,7 +30,7 @@ export const fetchRecipeInformation = async (id) => {
     return modifiedData;
 }
 
-export const fetchRecipeInstructions = async (id) => {
+/*export const fetchRecipeInstructions = async (id) => {
     const response = await fetch(`${url}/${id}/analyzedInstructions?apiKey=${apiKey}`);
     const data = await response.json();
     //console.log(data.steps)
@@ -37,4 +39,4 @@ export const fetchRecipeInstructions = async (id) => {
         step: steps.step
     }));
     return modifiedData;
-}
+}*/
