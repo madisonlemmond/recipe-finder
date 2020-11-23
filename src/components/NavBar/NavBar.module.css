@@ -1,5 +1,6 @@
 .navBar {
     display: flex;
+    flex-direction: row;
     text-align: center;
     justify-content: left;
     align-items: center;
@@ -13,6 +14,8 @@
 }
 
 .navButtons {
+    padding: 20px;
+    float: left;
     list-style-type: none;
     display: block;
     color: gray;

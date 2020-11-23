@@ -10,6 +10,9 @@ const NavBar = () => {
                 <Link to="/" style={{ textDecoration: 'none' }}>
                     <li className={styles.navButtons}>Home</li>
                 </Link>
+                <Link to="/favorites" style={{ textDecoration: 'none' }}>
+                <li className={styles.navButtons}>Favorites</li>
+                </Link>
             </nav>
         </div>
     );
