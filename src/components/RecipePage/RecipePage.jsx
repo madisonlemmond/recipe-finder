@@ -4,8 +4,10 @@ import styles from './RecipePage.module.css';
 const RecipePage = ({ id, title, image, ingredientInformation, recipeInstructions }) => {
     return(
         <div className={styles.RecipePage}>
-            <h1>{title}</h1>
-            <img className={styles.image} src={image} alt=""/>
+            <div className={styles.recipeCard}>
+                <h1>{title}</h1>
+                <img className={styles.image} src={image} alt=""/>
+            </div>
             <p>
                 {ingredientInformation.map(ingredients => (
                     <li key={id}>

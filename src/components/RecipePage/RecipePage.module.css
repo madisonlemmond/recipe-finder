@@ -1,0 +1,33 @@
+.container {
+    padding-top: 50px;
+}
+.recipeCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background: white;
+    align-items: center;
+    min-width: 40%;
+}
+
+.cardContent {
+
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    color: #575957;
+    font-size: 100%;
+}
+
+.image {
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 200px;
+    width: 400px;
+    max-width: 100%;
+    padding-top: 50px;
+}
