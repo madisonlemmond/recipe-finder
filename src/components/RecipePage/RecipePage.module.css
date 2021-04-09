@@ -6,17 +6,35 @@
     flex-direction: column;
     justify-content: space-around;
     background: white;
+    color: #575957;
     align-items: center;
     min-width: 40%;
+    padding-bottom: 50px;
 }
 
-.cardContent {
+.ingredients {
 
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
+    flex-direction: column;
     display: flex;
     color: #575957;
     font-size: 100%;
+    padding-bottom: 50px;
+}
+
+.instructions {
+
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    display: flex;
+    color: #575957;
+    font-size: 100%;
+    padding-bottom: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+
 }
 
 .image {
